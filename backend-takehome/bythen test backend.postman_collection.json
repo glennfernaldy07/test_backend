@@ -1,0 +1,864 @@
+{
+	"info": {
+		"_postman_id": "8766fc7a-38be-411c-8ae7-5c0268009be4",
+		"name": "bythen test backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5681417"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"testName\",\n    \"email\": \"testEmail@gmail.com\",\n    \"password\" : \"testPassword\",\n    \"retype_password\" : \"testPassword\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"testEmail\",\n    \"password\": \"testPassword\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/login/email",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"login",
+						"email"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login by email failed",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"testEmail\",\n    \"password\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/login/email",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"login",
+								"email"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "82"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 Aug 2024 14:54:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"status\": 401,\n  \"message\": \"Login Failed\",\n  \"data\": {\n    \"token\": \"\"\n  },\n}"
+				},
+				{
+					"name": "login by email success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"testEmail\",\n    \"password\": \"testPassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/login/email",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								"login",
+								"email"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "241"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 24 Aug 2024 14:57:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"status\": 200,\n  \"message\": \"Login Successful\",\n  \"data\": {\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\"\n  },\n}"
+				},
+				{
+					"name": "login by email Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"tami@gmail.com\",\n    \"password\": \"test123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'none'; script-src 'none'; object-src 'none'; base-uri 'none';"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=31536000, enforce"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000 ; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "deny"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 29 Aug 2024 20:44:37 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "194"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"200\",\n    \"message\": \"success\",\n    \"data\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhbWlAZ21haWwuY29tIiwiZXhwIjoxNzI0OTc2Mjc3LCJpZCI6MX0.c1Qlgx4PPm2RPIYrt_LwghkPZw6dNAj9ynaCR1lR55Y\"\n}"
+				}
+			]
+		},
+		{
+			"name": "posts",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhbWlAZ21haWwuY29tIiwiZXhwIjoiMjAyNC0wOS0wM1QyMjo0NTo1MC45Njc2MDErMDc6MDAifQ.98SVMxVBPWR_FrHS-JMgeLs284gyPFjlMxsTCl5H-70",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\" :\"test title\",\n    \"content\" : \"test content 123 \"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/posts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"posts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:8080/v1/posts",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhbWlAZ21haWwuY29tIiwiZXhwIjoiMjAyNC0wOS0wNFQwMTozODo0My44NTg5MiswNzowMCIsImlkIjozfQ.IpiHd7SrjJFC9R5StNv2Z9knNgCQOhdDqjzBhUoc6FE",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\" :\"test title 4\",\n    \"content\" : \"test content 123 \"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/posts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"posts"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'none'; script-src 'none'; object-src 'none'; base-uri 'none';"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=31536000, enforce"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000 ; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "deny"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 29 Aug 2024 20:44:50 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "157"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"title\": \"test title 4\",\n    \"content\": \"test content 123 \",\n    \"created_at\": \"2024-08-30T03:44:50.894009+07:00\",\n    \"updated_at\": \"2024-08-30T03:44:50.894009+07:00\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get blogs by blog id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhbWlAZ21haWwuY29tIiwiZXhwIjoiMjAyNC0wOS0wM1QyMjo0NTo1MC45Njc2MDErMDc6MDAifQ.98SVMxVBPWR_FrHS-JMgeLs284gyPFjlMxsTCl5H-70",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/v1/posts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"posts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get blogs",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhbWlAZ21haWwuY29tIiwiZXhwIjoiMjAyNC0wOS0wM1QyMjo0NTo1MC45Njc2MDErMDc6MDAifQ.98SVMxVBPWR_FrHS-JMgeLs284gyPFjlMxsTCl5H-70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/v1/posts/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"posts",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'none'; script-src 'none'; object-src 'none'; base-uri 'none';"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=31536000, enforce"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000 ; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "deny"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 29 Aug 2024 21:03:21 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "133"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"title\": \"test title 3\",\n    \"content\": \"test content 123 \",\n    \"created_at\": \"2024-08-29T20:44:42Z\",\n    \"updated_at\": \"2024-08-29T20:44:42Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Blog by ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhbWlAZ21haWwuY29tIiwiZXhwIjoiMjAyNC0wOS0wM1QyMjo0NTo1MC45Njc2MDErMDc6MDAifQ.98SVMxVBPWR_FrHS-JMgeLs284gyPFjlMxsTCl5H-70",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"Title\": \"updated title\",\n    \"Content\" : \"updated content\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/posts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"posts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get blogs by blog id Copy",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhbWlAZ21haWwuY29tIiwiZXhwIjoiMjAyNC0wOS0wM1QyMjo0NTo1MC45Njc2MDErMDc6MDAifQ.98SVMxVBPWR_FrHS-JMgeLs284gyPFjlMxsTCl5H-70",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"Title\": \"updated title\",\n    \"Content\" : \"updated content\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/posts/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"posts",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'none'; script-src 'none'; object-src 'none'; base-uri 'none';"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=31536000, enforce"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000 ; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "deny"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 29 Aug 2024 21:19:52 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "132"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"title\": \"updated title\",\n    \"content\": \"updated content\",\n    \"created_at\": \"0001-01-01T00:00:00Z\",\n    \"updated_at\": \"2024-08-29T21:19:53Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get blogs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhbWlAZ21haWwuY29tIiwiZXhwIjoiMjAyNC0wOS0wM1QyMjo0NTo1MC45Njc2MDErMDc6MDAifQ.98SVMxVBPWR_FrHS-JMgeLs284gyPFjlMxsTCl5H-70",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/v1/posts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"posts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get blogs Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhbWlAZ21haWwuY29tIiwiZXhwIjoiMjAyNC0wOS0wM1QyMjo0NTo1MC45Njc2MDErMDc6MDAifQ.98SVMxVBPWR_FrHS-JMgeLs284gyPFjlMxsTCl5H-70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/v1/posts",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"posts"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'none'; script-src 'none'; object-src 'none'; base-uri 'none';"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=31536000, enforce"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000 ; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "deny"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 29 Aug 2024 21:19:57 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "266"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"test title\",\n        \"content\": \"test content 123 \",\n        \"created_at\": \"2024-08-29T19:57:39Z\",\n        \"updated_at\": \"2024-08-29T19:57:39Z\"\n    },\n    {\n        \"id\": 3,\n        \"title\": \"updated title\",\n        \"content\": \"updated content\",\n        \"created_at\": \"2024-08-29T20:44:42Z\",\n        \"updated_at\": \"2024-08-29T21:19:53Z\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Delete Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhbWlAZ21haWwuY29tIiwiZXhwIjoiMjAyNC0wOS0wM1QyMjo0NTo1MC45Njc2MDErMDc6MDAifQ.98SVMxVBPWR_FrHS-JMgeLs284gyPFjlMxsTCl5H-70",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/v1/posts/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"posts",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Post",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRhbWlAZ21haWwuY29tIiwiZXhwIjoiMjAyNC0wOS0wM1QyMjo0NTo1MC45Njc2MDErMDc6MDAifQ.98SVMxVBPWR_FrHS-JMgeLs284gyPFjlMxsTCl5H-70",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/v1/posts/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"posts",
+								"4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'none'; script-src 'none'; object-src 'none'; base-uri 'none';"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Expect-Ct",
+							"value": "max-age=31536000, enforce"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000 ; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "deny"
+						},
+						{
+							"key": "X-Xss-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 29 Aug 2024 20:45:06 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "104"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 4,\n    \"title\": \"\",\n    \"content\": \"\",\n    \"created_at\": \"0001-01-01T00:00:00Z\",\n    \"updated_at\": \"0001-01-01T00:00:00Z\"\n}"
+				}
+			]
+		}
+	]
+}
